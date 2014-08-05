@@ -1,5 +1,6 @@
 {
 	"name": "Omashu/Front",
+	"type": "kohana-module",
 	"description": "Front module for the Kohana Framework, title, description, other meta data",
 	"keywords": ["kohana", "front"],
 	"homepage": "https://github.com/Omashu/Front",
@@ -15,6 +16,7 @@
 		"source":   "https://github.com/Omashu/Front"
 	},
 	"require": {
+		"composer/installers": "~1.0",
 		"php": ">=5.3.3",
 		"kohana/core": ">=3.3"
 	}
