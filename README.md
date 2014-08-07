@@ -45,8 +45,6 @@ Base use:
 Configurations
 -------------------
 
-### Main
-
 #### meta
 
 	$config["configure"]["meta"]["title"]["separator"] = string, default ` - `, your separator
@@ -71,7 +69,8 @@ Configurations
 	]: directory traversal in the search for a local file
 
 
-### On init (apply), executed on the first call
+On init (apply), executed on the first call
+---------------------------------------------------------
 
 #### meta
 
@@ -87,5 +86,5 @@ Configurations
 
 ### variable
 	$config["apply"]["variable"]["lang"][] = array("My site");
-	*	$config["apply"]["variable"]["jsvar"][] = array("user.tm", time());
-	*	$config["apply"]["variable"]["jsvar"][] = array("user.id", 1);
+	$config["apply"]["variable"]["jsvar"][] = array("user.tm", time());
+	$config["apply"]["variable"]["jsvar"][] = array("user.id", 1);
