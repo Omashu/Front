@@ -12,6 +12,10 @@ $config["apply"]["asset"]["js"][] = ["https://ajax.googleapis.com/ajax/libs/jque
 $config["apply"]["asset"]["js"][] = ["http://static.aninova.ru/libs/js/html5.js", ['merge' => false, 'before' => '<!--[if lt IE 9]>', 'after' => '<![endif]-->']];
 $config["apply"]["asset"]["css"][] = ["http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css", ["merge" => FALSE]];
 
+// $config["apply"]["variable"]["lang"][] = array("My site");
+// $config["apply"]["variable"]["jsvar"][] = array("user", array("id" => 123, "username" => "Sanji"));
+// $config["apply"]["variable"]["jsvar"][] = array("user.tm", time());
+
 // configure meta
 $config["configure"]["meta"]["title"]["separator"] = " / ";
 $config["configure"]["meta"]["title"]["reverse"] = TRUE;
@@ -33,5 +37,8 @@ $config["configure"]["meta"]["title"]["reverse"] = TRUE;
 // 		"http" => "http://site.com/assets_old/libs",
 // 	),
 // );
+
+// configure lang
+// $config["configure"]["meta"]["global"] = "__myVarName";
 
 return $config;

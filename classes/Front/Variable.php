@@ -1,5 +1,5 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Front_Exception extends Kohana_Front_Exception {
+class Front_Variable extends Kohana_Front_Variable {
 	// extends or replace this
 }

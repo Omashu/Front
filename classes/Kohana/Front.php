@@ -12,6 +12,11 @@ class Kohana_Front {
 	protected $_asset;
 
 	/**
+	 * @var object Kohana_Front_Variable
+	 */
+	protected $_variable;
+
+	/**
 	 * @var object Config_Group
 	 */
 	protected $_config;
@@ -74,6 +79,19 @@ class Kohana_Front {
 	}
 
 	/**
+	 * Get variable object
+	 * @return object Kohana_Front_Variable
+	 */
+	public static function variable() {
+		if (!isset(Front::instance()->_variable)) {
+			Front::instance()->_variable = new Front_Variable();
+			Front::instance()->_variable->configure(Arr::get(Front::instance()->_config->configure, "variable", array()));
+		}
+
+		return Front::instance()->_variable;
+	}
+
+	/**
 	 * Apply config values
 	 * @param array $apply values
 	 * @return this
@@ -81,9 +99,13 @@ class Kohana_Front {
 	protected function apply(array $apply = []) {
 		foreach ($apply as $section => $section_values) {
 			foreach ($section_values as $method => $values) {
-				if ($section === "meta") {
+				if ($section === "meta" AND in_array($method, array("title", "description", "keywords", "custom"))) {
 					call_user_func_array(array(Front::$section(), $method), $values);
-				} else if ($section === "asset") {
+				} else if ($section === "asset" AND in_array($method, array("js", "css", "less"))) {
+					foreach ($values as $value) {
+						call_user_func_array(array(Front::$section(), $method), $value);
+					}
+				} else if ($section === "variable" AND in_array($method, array("lang", "jsvar"))) {
 					foreach ($values as $value) {
 						call_user_func_array(array(Front::$section(), $method), $value);
 					}

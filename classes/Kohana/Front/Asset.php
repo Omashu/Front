@@ -6,7 +6,7 @@
  * Assets:
  * 	js, css, less
  */
-class Kohana_Front_Asset implements Kohana_Front_Interface {
+class Kohana_Front_Asset implements Kohana_Front_Asset_Interface, Kohana_Front_Interface {
 
 	/**
 	 * @var array configuration
@@ -213,14 +213,16 @@ class Kohana_Front_Asset implements Kohana_Front_Interface {
 	 */
 	public function get_less() {
 		$less = $this->build_paths($this->_less);
-
-		// cache
-		if ($this->_config["cache_paths"]) {
-
-			return $this;
-		}
-
 		return $less;
+	}
+
+	/**
+	 * Closure method for testing or crutches :)
+	 * @param function $callback
+	 * @return your callback
+	 */
+	public function closure($callback) {
+		return $callback($this);
 	}
 
 	public function render() {
