@@ -98,17 +98,21 @@ class Kohana_Front {
 	 */
 	protected function apply(array $apply = []) {
 		foreach ($apply as $section => $section_values) {
+			if (!in_array($section, ["meta","asset","variable"])) {
+				continue;
+			}
+
 			foreach ($section_values as $method => $values) {
-				if ($section === "meta" AND in_array($method, array("title", "description", "keywords", "custom"))) {
-					call_user_func_array(array(Front::$section(), $method), $values);
-				} else if ($section === "asset" AND in_array($method, array("js", "css", "less"))) {
-					foreach ($values as $value) {
-						call_user_func_array(array(Front::$section(), $method), $value);
-					}
-				} else if ($section === "variable" AND in_array($method, array("lang", "jsvar"))) {
-					foreach ($values as $value) {
-						call_user_func_array(array(Front::$section(), $method), $value);
-					}
+				if ($section === "meta" AND !in_array($method, ["title", "description", "keywords", "custom"])) {
+					continue;
+				} else if ($section === "asset" AND !in_array($method, ["js", "css", "less"])) {
+					continue;
+				} else if ($section === "variable" AND !in_array($method, ["lang", "jsvar"])) {
+					continue;
+				}
+
+				foreach ($values as $value) {
+					call_user_func_array(array(Front::$section(), $method), is_array($value)?$value:array($value));
 				}
 			}
 		}
