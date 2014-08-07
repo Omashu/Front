@@ -42,6 +42,22 @@ Base use:
 		->jsvar("user", array("id" => 1, "first_name" => "Ilya"))
 		->jsvar("user.username", "Sanji")
 
+Show data in your html head block:
+----------------------------------
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<?= Front::meta() ?>
+		<?= Front::asset() ?>
+		<?= Front::variable() ?>
+	</head>
+	<body>
+		
+	</body>
+	</html>
+
 Configurations
 -------------------
 
