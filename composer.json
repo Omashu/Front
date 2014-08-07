@@ -2,7 +2,7 @@
 	"name": "Omashu/Front",
 	"type": "kohana-module",
 	"description": "Front module for the Kohana Framework, title, description, other meta data",
-	"keywords": ["kohana", "front"],
+	"keywords": ["kohana", "front", "title", "description", "keywords", "js", "css"],
 	"homepage": "https://github.com/Omashu/Front",
 	"license": "BSD-3-Clause",
 	"authors": [
@@ -17,7 +17,7 @@
 	},
 	"require": {
 		"composer/installers": "~1.0",
-		"php": ">=5.3.3",
+		"php": ">=5.4",
 		"kohana/core": ">=3.3"
 	}
 }

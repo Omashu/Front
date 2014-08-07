@@ -1,3 +1,0 @@
-[submodule "vendor/CSSTidy"]
-	path = vendor/CSSTidy
-	url = https://github.com/Cerdic/CSSTidy.git

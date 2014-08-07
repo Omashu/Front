@@ -1,3 +1,4 @@
-<?php defined('SYSPATH') or die('No direct script access.');
+<?php
 
-class Front extends Kohana_Front {}
+class Front extends Kohana_Front {
+}
