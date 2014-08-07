@@ -1,7 +1,7 @@
 Kohana 3.3 Front Module
 =====================
 
-Install:
+Install Using Git:
 -------------------
 
 Clone module in your directory:
@@ -9,9 +9,23 @@ Clone module in your directory:
 	cd kohana/modules
 	git clone https://github.com/Omashu/Front.git front
 
+Install Using Composer:
+-----------------------
+
+	"require": {
+		"Omashu/Front"			: "dev-master"
+	},
+	"repositories":[
+		{
+			"type":"git",
+			"url":"https://github.com/Omashu/Front"
+		}
+	]
+
 Require module in bootstrap.php
 
 	`'front' => MODPATH.'front',`
+
 
 Base use:
 -------------------
