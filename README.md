@@ -58,11 +58,9 @@ Base use:
 		->jsvar("user.username", "Sanji")
 
 Get lang (client javascript):
-
 	__lang("Hello, :username", {":username":__value("user.username")}); // Hi, Sanji
 
 Get jsvar(client javascript):
-
 	__value("user.first_name") // Ilya
 
 Show data in your html head block:
