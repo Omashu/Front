@@ -53,8 +53,15 @@ Base use:
 	Front::variable()
 		->lang("My site", "Meine Website")
 		->lang(":q site", array(":q" => "My"))
+		->lang("Hello, :username", "Hi, :username")
 		->jsvar("user", array("id" => 1, "first_name" => "Ilya"))
 		->jsvar("user.username", "Sanji")
+
+Get lang (client javascript):
+	__lang("Hello, :username", {":username":__value("user.username")}); // Hi, Sanji
+
+Get jsvar(client javascript):
+	__value("user.first_name") // Ilya
 
 Show data in your html head block:
 ----------------------------------

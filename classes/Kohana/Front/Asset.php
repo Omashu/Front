@@ -121,7 +121,7 @@ class Kohana_Front_Asset implements Kohana_Front_Asset_Interface, Kohana_Front_I
 		}
 
 		// complete
-		$this->_css[$params["priority"]][] = [$file, $params];
+		$this->_less[$params["priority"]][] = [$file, $params];
 		return $this;
 	}
 
