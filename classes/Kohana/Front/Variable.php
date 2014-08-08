@@ -80,7 +80,43 @@ class Kohana_Front_Variable implements Kohana_Front_Interface {
 		$html .= "var {$this->_config["lang"]} = ".json_encode($this->_lang).";";
 		$html .= "var {$this->_config["jsvar"]} = ".json_encode($this->_jsvar).";";
 
+		// js function get lang value of object by key
+		$functions = ';function __lang(key,values) {
+			values = values || {};
+			var value = __value(key, '.$this->_config["lang"].');
+
+			if (value === undefined) {
+				return key;
+			}
+
+			for (var key in values) {
+				value = value.replace(key,values[key]);
+			}
+
+			return value;
+		};';
+
+		// js function get value of object by key
+		$functions .= ';function __value(key,array) {
+			var paths = key.split(".");
+			array = array || '.$this->_config["jsvar"].';
+
+			for (var key in paths) {
+				var key = paths[key];
+				if (array[key] === undefined) {
+					return undefined;
+				}
+
+				array = array[key];
+			}
+
+			var value = array;
+			return value;
+		};';
+
+		$html .= preg_replace("(\n|\t)", "", $functions);
 		$html .= '</script>';
+
 		return $html;
 	}
 
